@@ -1,6 +1,13 @@
 #Google Map App
 
-An app that uses the Google Maps API, AngularJS and SASS to creat an app that locates specified locations on the map.
+###An app that uses the Google Maps API, AngularJS and SASS to creat an app that locates specified locations on the map.
+
+
+![alt text](img/mapimage1.png "Map Image 1")
+
+##Installation
+
+............
 
 ##Sample Code
 ```javascript
@@ -20,6 +27,12 @@ function City(yearRank,city,state,yearEstimate,lastCensus,change,landArea,landAr
     this.latLon = latLon;
 }
 ```
+##Features
+	- 
+	-
+	-
+	-
 
 
-![alt text](img/mapimage1.png "Map Image 1")
+
+Visit my personal [Portfolio](http://shirletterly.com) for more information.
