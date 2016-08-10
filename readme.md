@@ -3,7 +3,7 @@
 An app that uses the Google Maps API, AngularJS and SASS to creat an app that locates specified locations on the map.
 
 ##Sample Code
-''''javascript
+'''javascript
 function City(yearRank,city,state,yearEstimate,lastCensus,change,landArea,landAreaInKm,lastPopDensity,lastPopDensityInKM,latLon){
     var latLonArr = [];
     this.yearRank = yearRank;
@@ -19,7 +19,7 @@ function City(yearRank,city,state,yearEstimate,lastCensus,change,landArea,landAr
     this.lon = Number(latLonArray[1]);
     this.latLon = latLon;
 }
-''''
+'''
 
 
 ![alt text](img/mapimage1.png "Map Image 1")
