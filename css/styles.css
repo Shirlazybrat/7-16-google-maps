@@ -18,21 +18,28 @@ table {
 }
 
 /* line 25, ../compass/sass/styles.scss */
-tr {
+#city tr {
   width: 100%;
   display: inline-table;
 }
-
 /* line 30, ../compass/sass/styles.scss */
-tbody {
+#city tbody {
   overflow-y: scroll;
   height: 93%;
   position: absolute;
 }
 
-/* line 37, ../compass/sass/styles.scss */
+/* line 38, ../compass/sass/styles.scss */
 #map {
   height: 99vh;
   width: 75%;
   float: left;
+}
+
+/* line 44, ../compass/sass/styles.scss */
+.adp, .adp table {
+  font-family: Roboto,Arial,sans-serif;
+  font-weight: 300;
+  color: #2C2C2C;
+  margin-right: 400px;
 }

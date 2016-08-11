@@ -21,17 +21,18 @@ table{
     bottom: 0;
     right: 0;
 }
+#city{
+	tr {
+	width: 100%;
+	display: inline-table;
+	}
 
-tr {
-width: 100%;
-display: inline-table;
-}
-
-tbody{
-  overflow-y: scroll;
-  height: 93%;
-  //width: %;
-  position: absolute;
+	tbody{
+	  overflow-y: scroll;
+	  height: 93%;
+	  //width: %;
+	  position: absolute;
+	}
 }
 
 #map{
@@ -40,7 +41,14 @@ tbody{
 	float: left;
 }
 
-#list-view{
+.adp, .adp table {
+    font-family: Roboto,Arial,sans-serif;
+    font-weight: 300;
+    color: #2C2C2C;
+    margin-right: 400px;
+}
+
+#list-window{
 	
 }
 
