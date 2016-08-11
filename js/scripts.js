@@ -16,12 +16,17 @@ googleMapsApp.controller('googleMapsController', function($scope, $http){
     var markers = [];
 
     function createMarker(city){
+    	// var icon = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=•%7CFE7569';
+    	// 	if(city.yearRank == 1){
+    	// 		icon = 'img/1.png';
+    	// 	}
     	var cityLatlng = {lat: city.lat, lng: city.lon};
 	    var marker = new google.maps.Marker(
 	        {
 	          position: cityLatlng,
 	          map: map,
 	          title: city.city
+	          // icon: icon
 	        }
 	    );
 
@@ -56,8 +61,27 @@ googleMapsApp.controller('googleMapsController', function($scope, $http){
 
 	}
 
-	$scope.$watch('filteredCities', function(newValue, oldValue){
-		console.log(newValue);
-	})
+	// $scope.$watch('filteredCities', function(newValue, oldValue){
+	// 	console.log(newValue);
+	// })
+
+	var directionsService = new google.maps.DirectionsService;
+  var directionsDisplay = new google.maps.DirectionsRenderer;
+  directionsDisplay.setMap(map);
+  directionsDisplay.setPanel(document.getElementById('list-window'));
+
+  directionsService.route({
+    origin: 'Atlanta, GA',
+    destination: 'New York, NY',
+    travelMode: 'DRIVING'
+  	}, function(response, status) {
+    	if (status === 'OK') {
+      	directionsDisplay.setDirections(response);
+    	} 
+    else {
+      window.alert('Directions request failed due to ' + status);
+    }
+  });
+
 
 });

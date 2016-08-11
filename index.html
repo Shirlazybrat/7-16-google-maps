@@ -24,10 +24,10 @@
 
 	
 
-<div id="list-window">
+<div>
 	<form ng-submit="updateMarkers()">
 		<input id="filter-input" ng-model="citiesFilter" type="text">
-		<input value="Update the map"  type="submit">
+		<input class="btn btn-info" value="Update the map"  type="submit">
 
 		<table class="table table-striped text-center" border=1>
 		<thead>
@@ -37,16 +37,18 @@
 				<th class="col-md-3">City Rank</th>
 			</tr>
 		</thead>
-	<tbody>
-			<tr ng-repeat="city in (filteredCities = (cities | filter: citiesFilter)) track by $index">
-				<td class="col-md-4"><a href="#" ng-click="triggerClick($index)">{{city.city}}</a></td>
-				<td class="col-md-4">{{city.state}}</td>
-				<td class="col-md-3">{{city.yearRank}}</td>
-			</tr>
-	</tbody>
-</table>
-
+			<tbody>
+				<tr ng-repeat="city in (filteredCities = (cities | filter: citiesFilter)) track by $index">
+					<td class="col-md-4"><a href="#" ng-click="triggerClick($index)">{{city.city}}</a></td>
+					<td class="col-md-4">{{city.state}}</td>
+					<td class="col-md-3">{{city.yearRank}}</td>
+				</tr>
+			</tbody>
+		</table>
 	</form>
+</div>
+
+<div id="list-window">
 </div>
 
 </body>
