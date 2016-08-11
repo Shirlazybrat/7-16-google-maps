@@ -3,12 +3,35 @@
 @import 'layout/header';
 @import 'layout/footer';
 
-body {
+body, html {
+	// overflow: hidden;
+	//height: 100%;
 	font-family: fantasy;
+	margin: 0;
 }
 
 table{
 	border: 2px solid purple;
+}
+
+.table{
+	width: 25%;
+	///position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+tr {
+width: 100%;
+display: inline-table;
+}
+
+tbody{
+  overflow-y: scroll;
+  height: 93%;
+  //width: %;
+  position: absolute;
 }
 
 #map{

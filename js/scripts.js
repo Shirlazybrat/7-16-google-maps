@@ -3,6 +3,7 @@
 var googleMapsApp = angular.module("googleMapsApp", []);
 googleMapsApp.controller('googleMapsController', function($scope, $http){
 
+		$scope.filteredCities = '';
 
     var myLatlng = {lat: 40.000, lng: -98.000};
 
@@ -43,5 +44,20 @@ googleMapsApp.controller('googleMapsController', function($scope, $http){
 		for(var i = 0; i<$scope.cities.length; i++){
 			createMarker($scope.cities[i])
 	}
+
+	$scope.updateMarkers = function(){
+		for(var i = 0; i <markers.length; i++){
+			markers[i].setMap(null);
+		}
+
+		for(var i = 0; i<$scope.filteredCities.length; i++){
+			createMarker($scope.filteredCities[i])
+		}
+
+	}
+
+	$scope.$watch('filteredCities', function(newValue, oldValue){
+		console.log(newValue);
+	})
 
 });
