@@ -4,6 +4,107 @@ var googleMapsApp = angular.module("googleMapsApp", []);
 googleMapsApp.controller('googleMapsController', function($scope, $http){
 
 		$scope.filteredCities = '';
+		$scope.placesTypes = [
+		    'accounting',
+		    'airport',
+		    'amusement_park',
+		    'aquarium',
+		    'art_gallery',
+		    'atm',
+		    'bakery',
+		    'bank',
+		    'bar',
+		    'beauty_salon',
+		    'bicycle_store',
+		    'book_store',
+		    'bowling_alley',
+		    'bus_station',
+		    'cafe',
+		    'campground',
+		    'car_dealer',
+		    'car_rental',
+		    'car_repair',
+		    'car_wash',
+		    'casino',
+		    'cemetery',
+		    'church',
+		    'city_hall',
+		    'clothing_store',
+		    'convenience_store',
+		    'courthouse',
+		    'dentist',
+		    'department_store',
+		    'doctor',
+		    'electrician',
+		    'electronics_store',
+		    'embassy',
+		    'establishment (deprecated)',
+		    'finance (deprecated)',
+		    'fire_station',
+		    'florist',
+		    'food (deprecated)',
+		    'funeral_home',
+		    'furniture_store',
+		    'gas_station',
+		    'general_contractor (deprecated)',
+		    'grocery_or_supermarket',
+		    'gym',
+		    'hair_care',
+		    'hardware_store',
+		    'health (deprecated)',
+		    'hindu_temple',
+		    'home_goods_store',
+		    'hospital',
+		    'insurance_agency',
+		    'jewelry_store',
+		    'laundry',
+		    'lawyer',
+		    'library',
+		    'liquor_store',
+		    'local_government_office',
+		    'locksmith',
+		    'lodging',
+		    'meal_delivery',
+		    'meal_takeaway',
+		    'mosque',
+		    'movie_rental',
+		    'movie_theater',
+		    'moving_company',
+		    'museum',
+		    'night_club',
+		    'painter',
+		    'park',
+		    'parking',
+		    'pet_store',
+		    'pharmacy',
+		    'physiotherapist',
+		    'place_of_worship (deprecated)',
+		    'plumber',
+		    'police',
+		    'post_office',
+		    'real_estate_agency',
+		    'restaurant',
+		    'roofing_contractor',
+		    'rv_park',
+		    'school',
+		    'shoe_store',
+		    'shopping_mall',
+		    'spa',
+		    'stadium',
+		    'storage',
+		    'store',
+		    'subway_station',
+		    'synagogue',
+		    'taxi_stand',
+		    'train_station',
+		    'transit_station',
+		    'travel_agency',
+		    'university',
+		    'veterinary_care',
+		    'zoo'
+		];
+
+		//console.log($scope.placesTypes);
 
     var myLatlng = {lat: 40.000, lng: -98.000};
 
@@ -14,6 +115,7 @@ googleMapsApp.controller('googleMapsController', function($scope, $http){
 
 
     var markers = [];
+    var infoWindow = new google.maps.InfoWindow
 
     function createMarker(city){
     	// var icon = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=•%7CFE7569';
@@ -26,16 +128,14 @@ googleMapsApp.controller('googleMapsController', function($scope, $http){
 	          position: cityLatlng,
 	          map: map,
 	          title: city.city
-	          // icon: icon
+	          // icon: place.icon
 	        }
 	    );
 
-	    var infowindow = new google.maps.InfoWindow({
-          content: city.city
-        });
 
 		    google.maps.event.addListener(marker, 'click', function(){
-		    	infowindow.open(map, marker);
+          infoWindow.setContent = '<h2>' + city.city + '</h2>';
+		    	infoWindow.open(map, marker);
 		    });
 		    markers.push(marker);
 
@@ -60,10 +160,14 @@ googleMapsApp.controller('googleMapsController', function($scope, $http){
 		}
 
 	}
-
 	// $scope.$watch('filteredCities', function(newValue, oldValue){
 	// 	console.log(newValue);
 	// })
+
+$scope.getDirections = function(lat,lon){
+
+	var destination = new google.maps.LatLng(lat, lon);
+	console.log(destination);
 
 	var directionsService = new google.maps.DirectionsService;
   var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -72,7 +176,7 @@ googleMapsApp.controller('googleMapsController', function($scope, $http){
 
   directionsService.route({
     origin: 'Atlanta, GA',
-    destination: 'New York, NY',
+    destination: destination,
     travelMode: 'DRIVING'
   	}, function(response, status) {
     	if (status === 'OK') {
@@ -82,6 +186,51 @@ googleMapsApp.controller('googleMapsController', function($scope, $http){
       window.alert('Directions request failed due to ' + status);
     }
   });
+}
 
 
+$scope.zoomToCity = function(lat, lon){
+	var bounds = new google.maps.LatLngBounds();
+	var cityLatlon = new google.maps.LatLng(lat, lon);
+	map = new google.maps.Map(document.getElementById('map'),
+		{
+		zoom: 12,
+     center: cityLatlon 
+		}
+	);
+
+	 infowindow = new google.maps.InfoWindow();
+	//var placesTypes = new google.maps.placesTypes;
+        var service = new google.maps.places.PlacesService(map);
+        service.nearbySearch({
+          location: cityLatlon,
+          radius: 500,
+          //type: [placesTypes]
+        }, callback);
+
+        function callback(results, status) {
+        	console.log(results);
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createPointOfInterest(results[i]);
+          }
+        }
+      }
+
+      function createPointOfInterest(place) {
+      	console.log(place);
+	        var placeLoc = place.geometry.location;
+	        var marker = new google.maps.Marker({
+	          map: map,
+	          position: place.geometry.location
+	        });
+
+	        google.maps.event.addListener(marker, 'click', function() {
+	          infowindow.setContent(place.name);
+	          infowindow.open(map, this);
+	        });
+	        bounds.extend(marker.getPosition());
+		}
+		//map.fitBounds(bounds)
+	}
 });

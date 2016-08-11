@@ -11,7 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?libraries=places&v=3.exp&signed_in=true&key=AIzaSyAKmlTdiLyHOVLNro9pGoqbt5m7JjXM_NY"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?libraries=places&v=3.exp&signed_in=true&key=AIzaSyAKmlTdiLyHOVLNro9pGoqbt5m7JjXM_NY&libraries=places"></script>
+
 
 	<script type="text/javascript" src="js/cities.js"></script>
 	<script type="text/javascript" src="js/scripts.js"></script>
@@ -29,6 +30,8 @@
 		<input id="filter-input" ng-model="citiesFilter" type="text">
 		<input class="btn btn-info" value="Update the map"  type="submit">
 
+		<select ng-model="selectedPlace" ng-options="place for place in placesTypes"></select>
+
 		<table class="table table-striped text-center" border=1>
 		<thead>
 			<tr>
@@ -42,6 +45,12 @@
 					<td class="col-md-4"><a href="#" ng-click="triggerClick($index)">{{city.city}}</a></td>
 					<td class="col-md-4">{{city.state}}</td>
 					<td class="col-md-3">{{city.yearRank}}</td>
+					<td>
+						<button type="submit"  ng-click="getDirections(city.lat, city.lon)">Get Directions</button>
+					</td>
+					<td>
+						<button type="submit"  ng-click="zoomToCity(city.lat, city.lon)">Zoom to city</button>
+					</td>
 				</tr>
 			</tbody>
 		</table>
