@@ -1,0 +1,182 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'bitcore' ]
+2 info using npm@2.14.12
+3 info using node@v4.3.1
+4 verbose install initial load of /usr/local/lib/package.json
+5 verbose readDependencies loading dependencies from /usr/local/lib/package.json
+6 silly cache add args [ 'bitcore', null ]
+7 verbose cache add spec bitcore
+8 silly cache add parsed spec Result {
+8 silly cache add   raw: 'bitcore',
+8 silly cache add   scope: null,
+8 silly cache add   name: 'bitcore',
+8 silly cache add   rawSpec: '',
+8 silly cache add   spec: 'latest',
+8 silly cache add   type: 'tag' }
+9 silly addNamed bitcore@latest
+10 verbose addNamed "latest" is being treated as a dist-tag for bitcore
+11 info addNameTag [ 'bitcore', 'latest' ]
+12 silly mapToRegistry name bitcore
+13 silly mapToRegistry using default registry
+14 silly mapToRegistry registry https://registry.npmjs.org/
+15 silly mapToRegistry uri https://registry.npmjs.org/bitcore
+16 verbose addNameTag registry:https://registry.npmjs.org/bitcore not in flight; fetching
+17 verbose request uri https://registry.npmjs.org/bitcore
+18 verbose request no auth needed
+19 info attempt registry request try #1 at 5:06:31 PM
+20 verbose request id b135db55b8f4f454
+21 verbose etag "3Y03XS8I2LFSNC8N2KLABQY7Q"
+22 http request GET https://registry.npmjs.org/bitcore
+23 http 304 https://registry.npmjs.org/bitcore
+24 verbose headers { date: 'Wed, 10 Aug 2016 21:06:31 GMT',
+24 verbose headers   via: '1.1 varnish',
+24 verbose headers   'cache-control': 'max-age=300',
+24 verbose headers   etag: '"3Y03XS8I2LFSNC8N2KLABQY7Q"',
+24 verbose headers   age: '0',
+24 verbose headers   connection: 'keep-alive',
+24 verbose headers   'x-served-by': 'cache-atl6225-ATL',
+24 verbose headers   'x-cache': 'MISS',
+24 verbose headers   'x-cache-hits': '0',
+24 verbose headers   'x-timer': 'S1470863191.740136,VS0,VE339',
+24 verbose headers   vary: 'Accept-Encoding' }
+25 silly get cb [ 304,
+25 silly get   { date: 'Wed, 10 Aug 2016 21:06:31 GMT',
+25 silly get     via: '1.1 varnish',
+25 silly get     'cache-control': 'max-age=300',
+25 silly get     etag: '"3Y03XS8I2LFSNC8N2KLABQY7Q"',
+25 silly get     age: '0',
+25 silly get     connection: 'keep-alive',
+25 silly get     'x-served-by': 'cache-atl6225-ATL',
+25 silly get     'x-cache': 'MISS',
+25 silly get     'x-cache-hits': '0',
+25 silly get     'x-timer': 'S1470863191.740136,VS0,VE339',
+25 silly get     vary: 'Accept-Encoding' } ]
+26 verbose etag https://registry.npmjs.org/bitcore from cache
+27 verbose get saving bitcore to /Users/shirlettechambers/.npm/registry.npmjs.org/bitcore/.cache.json
+28 silly addNameTag next cb for bitcore with tag latest
+29 silly addNamed bitcore@4.1.0
+30 verbose addNamed "4.1.0" is a plain semver version for bitcore
+31 silly cache afterAdd bitcore@4.1.0
+32 verbose afterAdd /Users/shirlettechambers/.npm/bitcore/4.1.0/package/package.json not in flight; writing
+33 verbose afterAdd /Users/shirlettechambers/.npm/bitcore/4.1.0/package/package.json written
+34 silly install resolved [ { name: 'bitcore',
+34 silly install resolved     version: '4.1.0',
+34 silly install resolved     description: 'A platform to build bitcoin and blockchain-based applications.',
+34 silly install resolved     author: { name: 'BitPay', email: 'dev@bitpay.com' },
+34 silly install resolved     main: 'index.js',
+34 silly install resolved     scripts:
+34 silly install resolved      { test: 'mocha test/** --recursive',
+34 silly install resolved        'build-deb': './scripts/build-deb' },
+34 silly install resolved     bin: { bitcore: './bin/bitcore', bitcored: './bin/bitcored' },
+34 silly install resolved     contributors:
+34 silly install resolved      [ [Object],
+34 silly install resolved        [Object],
+34 silly install resolved        [Object],
+34 silly install resolved        [Object],
+34 silly install resolved        [Object],
+34 silly install resolved        [Object],
+34 silly install resolved        [Object],
+34 silly install resolved        [Object],
+34 silly install resolved        [Object],
+34 silly install resolved        [Object],
+34 silly install resolved        [Object] ],
+34 silly install resolved     keywords:
+34 silly install resolved      [ 'bitcoin',
+34 silly install resolved        'transaction',
+34 silly install resolved        'address',
+34 silly install resolved        'p2p',
+34 silly install resolved        'ecies',
+34 silly install resolved        'cryptocurrency',
+34 silly install resolved        'blockchain',
+34 silly install resolved        'payment',
+34 silly install resolved        'bip21',
+34 silly install resolved        'bip32',
+34 silly install resolved        'bip37',
+34 silly install resolved        'bip69',
+34 silly install resolved        'bip70',
+34 silly install resolved        'multisig' ],
+34 silly install resolved     repository:
+34 silly install resolved      { type: 'git',
+34 silly install resolved        url: 'git+https://github.com/bitpay/bitcore.git' },
+34 silly install resolved     browser: { request: 'browser-request' },
+34 silly install resolved     dependencies:
+34 silly install resolved      { 'bitcore-lib': '^0.13.14',
+34 silly install resolved        'bitcore-node': '~3.1.0',
+34 silly install resolved        'insight-api': '^0.4.0',
+34 silly install resolved        'insight-ui': '^0.4.0' },
+34 silly install resolved     license: 'MIT',
+34 silly install resolved     devDependencies: { chai: '^3.3.0', mocha: '^2.3.3' },
+34 silly install resolved     gitHead: '9a4cdbdb5a7ae7b245072281177a94b847ee6bf1',
+34 silly install resolved     bugs: { url: 'https://github.com/bitpay/bitcore/issues' },
+34 silly install resolved     homepage: 'https://github.com/bitpay/bitcore#readme',
+34 silly install resolved     _id: 'bitcore@4.1.0',
+34 silly install resolved     _shasum: '46c6b1e6a429d0cc5a9ab83336c29cc0f03b5eeb',
+34 silly install resolved     _from: 'bitcore@latest',
+34 silly install resolved     _npmVersion: '2.15.5',
+34 silly install resolved     _nodeVersion: '4.4.5',
+34 silly install resolved     _npmUser: { name: 'braydonf', email: 'braydon@bitpay.com' },
+34 silly install resolved     dist:
+34 silly install resolved      { shasum: '46c6b1e6a429d0cc5a9ab83336c29cc0f03b5eeb',
+34 silly install resolved        tarball: 'https://registry.npmjs.org/bitcore/-/bitcore-4.1.0.tgz' },
+34 silly install resolved     maintainers: [ [Object], [Object] ],
+34 silly install resolved     _npmOperationalInternal:
+34 silly install resolved      { host: 'packages-16-east.internal.npmjs.com',
+34 silly install resolved        tmp: 'tmp/bitcore-4.1.0.tgz_1467052327159_0.8870520363561809' },
+34 silly install resolved     directories: {},
+34 silly install resolved     _resolved: 'https://registry.npmjs.org/bitcore/-/bitcore-4.1.0.tgz',
+34 silly install resolved     readme: 'ERROR: No README data found!' } ]
+35 info install bitcore@4.1.0 into /usr/local/lib
+36 info installOne bitcore@4.1.0
+37 verbose installOne of bitcore to /usr/local/lib not in flight; installing
+38 verbose lock using /Users/shirlettechambers/.npm/_locks/bitcore-29fe77c260096d1a.lock for /usr/local/lib/node_modules/bitcore
+39 silly install write writing bitcore 4.1.0 to /usr/local/lib/node_modules/bitcore
+40 verbose unbuild lib/node_modules/bitcore
+41 silly gentlyRm /usr/local/lib/node_modules/bitcore is being purged from base /usr/local
+42 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/bitcore
+43 verbose tar unpack /Users/shirlettechambers/.npm/bitcore/4.1.0/package.tgz
+44 verbose tar unpacking to /usr/local/lib/node_modules/bitcore
+45 silly gentlyRm /usr/local/lib/node_modules/bitcore is being purged
+46 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/bitcore
+47 silly gunzTarPerm modes [ '755', '644' ]
+48 error tar.unpack untar error /Users/shirlettechambers/.npm/bitcore/4.1.0/package.tgz
+49 verbose unlock done using /Users/shirlettechambers/.npm/_locks/bitcore-29fe77c260096d1a.lock for /usr/local/lib/node_modules/bitcore
+50 verbose fstream_path /usr/local/lib/node_modules/bitcore
+51 verbose fstream_type Directory
+52 verbose fstream_class DirWriter
+53 verbose stack Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/bitcore'
+53 verbose stack     at Error (native)
+54 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25
+54 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53
+54 verbose fstream_stack FSReqWrap.oncomplete (fs.js:82:15)
+55 verbose cwd /Users/shirlettechambers/Desktop/#CodeBlack/DigitalCrafts/7-16immersive/unit2/google-maps
+56 error Darwin 15.3.0
+57 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "bitcore"
+58 error node v4.3.1
+59 error npm  v2.14.12
+60 error path /usr/local/lib/node_modules/bitcore
+61 error code EACCES
+62 error errno -13
+63 error syscall mkdir
+64 error Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/bitcore'
+64 error     at Error (native)
+64 error  { [Error: EACCES: permission denied, mkdir '/usr/local/lib/node_modules/bitcore']
+64 error   errno: -13,
+64 error   code: 'EACCES',
+64 error   syscall: 'mkdir',
+64 error   path: '/usr/local/lib/node_modules/bitcore',
+64 error   fstream_type: 'Directory',
+64 error   fstream_path: '/usr/local/lib/node_modules/bitcore',
+64 error   fstream_class: 'DirWriter',
+64 error   fstream_stack:
+64 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:35:25',
+64 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:47:53',
+64 error      'FSReqWrap.oncomplete (fs.js:82:15)' ] }
+65 error Please try running this command again as root/Administrator.
+66 verbose exit [ -13, true ]
+67 verbose unbuild lib/node_modules/bitcore
+68 silly gentlyRm /usr/local/lib/node_modules/bitcore is being purged from base /usr/local
+69 verbose gentlyRm don't care about contents; nuking /usr/local/lib/node_modules/bitcore
