@@ -118,17 +118,18 @@ googleMapsApp.controller('googleMapsController', function($scope, $http){
     var infoWindow = new google.maps.InfoWindow
 
     function createMarker(city){
-    	// var icon = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=•%7CFE7569';
-    	// 	if(city.yearRank == 1){
-    	// 		icon = 'img/1.png';
-    	// 	}
+    	//var icon = 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=•%7CFE7569';
+    	var icon = 'img/purple_pin.png';
+    		if(city.yearRank == 1){
+    		icon = 'img/1.png';
+    	 	}
     	var cityLatlng = {lat: city.lat, lng: city.lon};
 	    var marker = new google.maps.Marker(
 	        {
 	          position: cityLatlng,
 	          map: map,
-	          title: city.city
-	          // icon: place.icon
+	          title: city.city,
+	          icon: icon
 	        }
 	    );
 
@@ -200,12 +201,12 @@ $scope.zoomToCity = function(lat, lon){
 	);
 
 	 infowindow = new google.maps.InfoWindow();
-	//var placesTypes = new google.maps.placesTypes;
+	//var types = $scope.placesTypes;
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
           location: cityLatlon,
           radius: 500,
-          //type: [placesTypes]
+          type: [types]
         }, callback);
 
         function callback(results, status) {

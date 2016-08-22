@@ -1,6 +1,6 @@
 #Google Map App
 
-###An app that uses the Google Maps API, AngularJS and SASS to creat an app that locates specified locations on the map.
+###An application that uses the Google Maps API, AngularJS and SASS to create an experince that locates specified locations on the map.
 
 
 ![alt text](img/mapimage1.png "Map Image 1")
